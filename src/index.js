@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import config from "./config/config.js";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./config/swagger.js";
+import routes from "./routes/index.js";
 
 dotenv.config({ quiet: true });
 
@@ -52,6 +53,8 @@ const connectDB = async () => {
 app.get("/status", (req, res) => {
   res.send("ok");
 });
+
+app.use("/api/v1", routes);
 
 const startServer = async () => {
   try {
