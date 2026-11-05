@@ -1,0 +1,69 @@
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import mongoose from "mongoose";
+import config from "./config/config.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./config/swagger.js";
+
+dotenv.config({ quiet: true });
+
+const app = express();
+
+app.use(cors({ origin: config.app.corsOrigins, credentials: true }));
+app.use(express.json());
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.get("/docs.json", (req, res) => res.json(swaggerSpec));
+
+const connectDB = async () => {
+  try {
+    const database = mongoose.connection;
+
+    database.on("error", (error) => {
+      console.error("MongoDB connection error:", error);
+    });
+
+    database.once("connected", () => {
+      console.log("Database Connected");
+    });
+
+    await mongoose.connect(config.db.mongoUrl);
+  } catch (error) {
+    console.error("Failed to connect to MongoDB:", error);
+    process.exit(1);
+  }
+};
+
+/**
+ * @openapi
+ * /status:
+ *   get:
+ *     summary: Health check
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Server is running
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: ok
+ */
+app.get("/status", (req, res) => {
+  res.send("ok");
+});
+
+const startServer = async () => {
+  try {
+    await connectDB();
+
+    app.listen(config.app.port, () => {
+      console.log(`Server is running on port ${config.app.port}`);
+    });
+  } catch (error) {
+    console.error("Server startup failed:", error);
+    process.exit(1);
+  }
+};
+
+startServer();
