@@ -1,15 +1,15 @@
 import { Router } from "express";
-import { adminLogin } from "./auth.controller.js";
+import { adminLogin } from "./admin.controller.js";
 
 const router = Router();
 
 /**
  * @openapi
- * /api/v1/auth/admin/login:
+ * /api/v1/admin/login:
  *   post:
  *     summary: Admin Login
  *     description: Authenticates the admin and returns access and refresh tokens.
- *     tags: [Auth]
+ *     tags: [Admin]
  *     requestBody:
  *       required: true
  *       content:
@@ -47,6 +47,6 @@ const router = Router();
  *       401:
  *         description: Invalid email or password
  */
-router.post("/admin/login", adminLogin);
+router.post("/login", adminLogin);
 
 export default router;

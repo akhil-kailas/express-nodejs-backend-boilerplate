@@ -1,4 +1,4 @@
-import * as authService from "./auth.service.js";
+import * as adminService from "./admin.service.js";
 
 export const adminLogin = async (req, res, next) => {
   try {
@@ -11,13 +11,12 @@ export const adminLogin = async (req, res, next) => {
       });
     }
 
-    const { accessToken, refreshToken } = await authService.adminLogin({
+    const { accessToken, refreshToken } = await adminService.adminLogin({
       email,
       password,
     });
 
     return res.status(200).json({
-      success: true,
       accessToken,
       refreshToken,
     });
