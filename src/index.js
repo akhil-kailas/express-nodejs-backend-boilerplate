@@ -45,13 +45,27 @@ const connectDB = async () => {
  *       200:
  *         description: Server is running
  *         content:
- *           text/plain:
+ *           application/json:
  *             schema:
- *               type: string
- *               example: ok
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 status:
+ *                   type: string
+ *                   example: ok
+ *                 timestamp:
+ *                   type: string
+ *                   format: date-time
+ *                   example: 2026-11-05T10:30:00.000Z
  */
 app.get("/status", (req, res) => {
-  res.send("ok");
+  res.status(200).json({
+    success: true,
+    status: "ok",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 app.use("/api/v1", routes);
