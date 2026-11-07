@@ -16,12 +16,12 @@ npm install
 
 ## Available Commands
 
-| Command | Description |
-| - | - |
-| `npm start` | Start the project |
-| `npm run dev` | Start the project in development mode |
-| `npm run format` | Format the source code |
-| `npm run test` | Run Test cases |
+| Command          | Description                           |
+| ---------------- | ------------------------------------- |
+| `npm start`      | Start the project                     |
+| `npm run dev`    | Start the project in development mode |
+| `npm run format` | Format the source code                |
+| `npm run test`   | Run Test cases                        |
 
 ## API Documentation
 
@@ -29,21 +29,18 @@ Swagger API documentation is available at: `/docs`
 
 ## Admin Endpoints
 
-| Method | Endpoint | Description |
-| - | - | - |
-| POST | `/api/v1/admin/login` | Admin Login |
+| Method | Endpoint              | Description |
+| ------ | --------------------- | ----------- |
+| POST   | `/api/v1/admin/login` | Admin Login |
 
 ## User Endpoints
 
-| Method | Endpoint | Description |
-| - | - | - |
-| POST | `/api/v1/user/register` | User Register |
-| POST | `/api/v1/user/login` | User Login |
-| POST | `/api/v1/user/refresh` | Refresh User token |
-| POST | `/api/v1/user/logout` | User Logout |
-| GET | `/api/v1/user/me` | Get logged-in user |
-| PATCH | `/api/v1/user/me` | Update logged-in user |
-| DELETE | `/api/v1/user/me` | Delete logged-in use |
-
-
-
+| Method | Endpoint                | Description           |
+| ------ | ----------------------- | --------------------- |
+| POST   | `/api/v1/user/register` | User Register         |
+| POST   | `/api/v1/user/login`    | User Login            |
+| POST   | `/api/v1/user/refresh`  | Refresh User token    |
+| POST   | `/api/v1/user/logout`   | User Logout           |
+| GET    | `/api/v1/user/me`       | Get logged-in user    |
+| PATCH  | `/api/v1/user/me`       | Update logged-in user |
+| DELETE | `/api/v1/user/me`       | Delete logged-in use  |

@@ -9,17 +9,17 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true, select: false },
     refreshToken: { type: String, select: false },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 // Unique only when the field actually exists (phone/email are optional)
 userSchema.index(
   { email: 1 },
-  { unique: true, partialFilterExpression: { email: { $type: "string" } } }
+  { unique: true, partialFilterExpression: { email: { $type: "string" } } },
 );
 userSchema.index(
   { phone: 1 },
-  { unique: true, partialFilterExpression: { phone: { $type: "string" } } }
+  { unique: true, partialFilterExpression: { phone: { $type: "string" } } },
 );
 
 userSchema.set("toJSON", {
