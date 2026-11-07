@@ -16,18 +16,16 @@ npm install
 
 ## Available Commands
 
-| Command          | Description                           |
-| ---------------- | ------------------------------------- |
-| `npm start`      | Start the project                     |
-| `npm run dev`    | Start the project in development mode |
-| `npm run format` | Format the source code                |
-| `npm run test`   | Run Test cases                        |
+| Command | Description |
+| - | - | - |
+| `npm start` | Start the project |
+| `npm run dev` | Start the project in development mode |
+| `npm run format` | Format the source code |
+| `npm run test` | Run Test cases |
 
 ## API Documentation
 
-Swagger API documentation is available at:
-
-[http://localhost:5000/docs/](http://localhost:5000/docs/)
+Swagger API documentation is available at: `/docs`
 
 ## Admin Endpoints
 
