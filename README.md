@@ -29,9 +29,13 @@ Swagger API documentation is available at: `/docs`
 
 ## Admin Endpoints
 
-| Method | Endpoint              | Description |
-| ------ | --------------------- | ----------- |
-| POST   | `/api/v1/admin/login` | Admin Login |
+| Method | Endpoint                   | Description          |
+| ------ | -------------------------- | -------------------- |
+| POST   | `/api/v1/admin/login`      | Admin Login          |
+| POST   | `/api/v1/admin/refresh`    | Refresh admin tokens |
+| POST   | `/api/v1/admin/logout`     | Admin Logout         |
+| GET    | `/api/v1/admin/users`      | Get all users        |
+| DELETE | `/api/v1/admin/users/{id}` | Delete user by id    |
 
 ## User Endpoints
 
