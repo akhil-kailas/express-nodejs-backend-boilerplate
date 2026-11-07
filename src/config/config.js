@@ -10,7 +10,7 @@ const config = {
   db: {
     mongoUrl:
       process.env.MONGO_URL ||
-      "mongodb://localhost:27017/e-commerce-website-fullstack",
+      "mongodb://localhost:27017/backend-test",
   },
 
   admin: {
